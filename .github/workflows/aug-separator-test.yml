@@ -1,0 +1,20 @@
+name: August separator test
+on:
+  push:
+    branches: [tmp-aug-separator-test]
+    paths:
+      - '.github/workflows/aug-separator-test.yml'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pandas numpy
+      - run: python tmp_aug_test/test_aug_separator.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aug-separator-result
+          path: tmp_aug_test/aug_result.json
