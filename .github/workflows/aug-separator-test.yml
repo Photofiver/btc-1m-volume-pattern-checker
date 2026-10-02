@@ -1,4 +1,4 @@
-name: LONG breakout validation
+name: Combined filters 5m validation
 on:
   push:
     branches: [tmp-aug-separator-test]
@@ -12,8 +12,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: python tmp_aug_test/test_long_breakout_5m.py
+      - run: python tmp_aug_test/test_combined_filters_5m.py
       - uses: actions/upload-artifact@v4
         with:
-          name: long-breakout-result
-          path: tmp_aug_test/long_breakout_result.json
+          name: combined-filter-result
+          path: tmp_aug_test/combined_filter_result.json
